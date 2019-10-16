@@ -16,7 +16,7 @@ use Symfony\Component\Yaml\Yaml;
 class ConfigurationContext implements Context
 {
     private const SITEACCESS_KEY_FORMAT = 'ezpublish.system.%s.%s';
-
+    private const SITEACCESS_MATCHER_KEY_FORMAT = 'ezpublish.siteaccess.match.%s';
     private $ezplatformConfigFilePath;
 
     /**
@@ -66,7 +66,9 @@ class ConfigurationContext implements Context
     }
 
     /**
-     * @Given I :mode configuration to :siteaccessName siteaccess under :keyName key
+     * @Given I :mode configuration to :parentNode
+     *
+     * string $mode Available: append|set - whether the new config will be appended (resulting in an array) or replace the current value if it exists
      */
     public function iModifyConfigurationForSiteaccessUnderKey(string $mode, $siteaccessName, $keyName, PyStringNode $configFragment)
     {
@@ -91,6 +93,22 @@ class ConfigurationContext implements Context
             $configurationEditor->append($config, $parentNode, $parsedConfig) :
             $configurationEditor->set($config, $parentNode, $parsedConfig);
         $configurationEditor->saveConfigToFile($this->ezplatformConfigFilePath, $config);
+    }
+    /**
+     * @Given I :mode configuration to :siteaccessName siteaccess under :keyName key
+     */
+    public function iModifyConfigurationForSiteaccessUnderKey(string $mode, $siteaccessName, $keyName, PyStringNode $configFragment)
+    {
+        $parentNode = sprintf(self::SITEACCESS_KEY_FORMAT, $siteaccessName, $keyName);
+        $this->iModifyConfigurationUnderKey($mode, $parentNode, $configFragment);
+    }
+    /**
+     * @Given I :mode siteaccess matcher configuration of type :type
+     */
+    public function iModifySiteaccessMatcherConfiguration(string $mode, $type, PyStringNode $configFragment)
+    {
+        $parentNode = sprintf(self::SITEACCESS_MATCHER_KEY_FORMAT, $type);
+        $this->iModifyConfigurationUnderKey($mode, $parentNode, $configFragment);
     }
 
     private function parseSetting($setting)

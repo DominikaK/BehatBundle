@@ -22,21 +22,41 @@ branches:
 
 matrix:
   include:
-    - name: "Code Style Check"
-      env: CHECK_CS=1
-    - name: "Unit tests"
-      env: PHPUNIT_CONFIG='phpunit.xml'
-    - name: "BehatBundle examples"
-      php: 7.3
-      env: BEHAT_OPTS="--profile=behat --suite=examples"
-    - name: "BehatBundle personas tests"
-      php: 7.3
-      env: BEHAT_OPTS="--mode=behat --profile=setup --suite=personas"
+#    - name: "Code Style Check"
+#      env: CHECK_CS=1
+#    - name: "Unit tests"
+#      env: PHPUNIT_CONFIG='phpunit.xml'
+#    - name: "BehatBundle examples"
+#      php: 7.3
+#      env: BEHAT_OPTS="--profile=behat --suite=examples"
+#    - name: "BehatBundle personas tests"
+#      php: 7.3
+#      env: BEHAT_OPTS="--mode=behat --profile=setup --suite=personas"
     - name: "AdminUI Modules tests"
       php: 7.3
       env:
         -SETUP_BEHAT_OPTS="--mode=behat --profile=setup --suite=richtext_configuration"
         -BEHAT_OPTS="--mode=behat --profile=adminui --suite=adminuimodules"
+    - name: "AdminUI SAMURIElement tests"
+      php: 7.3
+      env:
+        -SETUP_BEHAT_OPTS="--mode=behat --profile=setup --suite=richtext_configuration"
+        -BEHAT_OPTS="--mode=behat --profile=adminui --suite=SAMURIElement"
+    - name: "AdminUI SAMMapHost tests"
+      php: 7.3
+      env:
+        -SETUP_BEHAT_OPTS="--mode=behat --profile=setup --suite=richtext_configuration"
+        -BEHAT_OPTS="--mode=behat --profile=adminui --suite=SAMMapHost"
+    - name: "AdminUI SAMMapURI tests"
+      php: 7.3
+      env:
+        -SETUP_BEHAT_OPTS="--mode=behat --profile=setup --suite=richtext_configuration"
+        -BEHAT_OPTS="--mode=behat --profile=adminui --suite=SAMMapURI"
+    - name: "AdminUI CompoundMapURIMapHost tests"
+      php: 7.3
+      env:
+        -SETUP_BEHAT_OPTS="--mode=behat --profile=setup --suite=richtext_configuration"
+        -BEHAT_OPTS="--mode=behat --profile=adminui --suite=CompoundMapURIMapHost"
 
 git:
   depth: 30
