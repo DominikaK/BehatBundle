@@ -70,16 +70,6 @@ class ConfigurationContext implements Context
      *
      * string $mode Available: append|set - whether the new config will be appended (resulting in an array) or replace the current value if it exists
      */
-    public function iModifyConfigurationForSiteaccessUnderKey(string $mode, $siteaccessName, $keyName, PyStringNode $configFragment)
-    {
-        $this->iModifyConfigurationUnderKey($mode, sprintf(self::SITEACCESS_KEY_FORMAT, $siteaccessName, $keyName), $configFragment);
-    }
-
-    /**
-     * @Given I :mode configuration to :parentNode
-     *
-     * string $mode Available: append|set - whether the new config will be appended (resulting in an array) or replace the current value if it exists
-     */
     public function iModifyConfigurationUnderKey(string $mode, $parentNode, PyStringNode $configFragment)
     {
         $appendToExisting = $this->shouldAppendValue($mode);
