@@ -40,23 +40,23 @@ matrix:
     - name: "AdminUI SAMURIElement tests"
       php: 7.3
       env:
-        -SETUP_BEHAT_OPTS="--mode=behat --profile=setup --suite=richtext_configuration"
-        -BEHAT_OPTS="--mode=behat --profile=adminui --suite=SAMURIElement"
+        -SETUP_BEHAT_OPTS="--mode=behat --profile=setup --suite=SAMURIElement"
+        -BEHAT_OPTS="--mode=behat --profile=adminui --suite=adminui"
     - name: "AdminUI SAMMapHost tests"
       php: 7.3
       env:
-        -SETUP_BEHAT_OPTS="--mode=behat --profile=setup --suite=richtext_configuration"
-        -BEHAT_OPTS="--mode=behat --profile=adminui --suite=SAMMapHost"
+        -SETUP_BEHAT_OPTS="--mode=behat --profile=setup --suite=SAMMapHost"
+        -BEHAT_OPTS="--mode=behat --profile=adminui --suite=adminui"
     - name: "AdminUI SAMMapURI tests"
       php: 7.3
       env:
-        -SETUP_BEHAT_OPTS="--mode=behat --profile=setup --suite=richtext_configuration"
-        -BEHAT_OPTS="--mode=behat --profile=adminui --suite=SAMMapURI"
+        -SETUP_BEHAT_OPTS="--mode=behat --profile=setup --suite=SAMMapURI"
+        -BEHAT_OPTS="--mode=behat --profile=adminui --suite=adminui"
     - name: "AdminUI CompoundMapURIMapHost tests"
       php: 7.3
       env:
-        -SETUP_BEHAT_OPTS="--mode=behat --profile=setup --suite=richtext_configuration"
-        -BEHAT_OPTS="--mode=behat --profile=adminui --suite=CompoundMapURIMapHost"
+        -SETUP_BEHAT_OPTS="--mode=behat --profile=setup --suite=CompoundMapURIMapHost"
+        -BEHAT_OPTS="--mode=behat --profile=adminui --suite=adminui"
 
 git:
   depth: 30
