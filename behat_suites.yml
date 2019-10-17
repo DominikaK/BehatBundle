@@ -38,23 +38,23 @@ setup:
             paths:
                 - '%paths.base%/vendor/ezsystems/behatbundle/features/setup/siteaccessMatcher/SAMURIElement.feature'
             contexts:
-                - EzSystems\Behat\API\Context\LanguageContext
+                - EzSystems\BehatBundle\Context\Object\LanguageContext
                 - EzSystems\Behat\Core\Context\ConfigurationContext
         SAMMapHost:
             paths:
                 - '%paths.base%/vendor/ezsystems/behatbundle/features/setup/siteaccessMatcher/SAMMapHost.feature'
             contexts:
-                - EzSystems\Behat\API\Context\LanguageContext
+                - EzSystems\BehatBundle\Context\Object\LanguageContext
                 - EzSystems\Behat\Core\Context\ConfigurationContext
         SAMMapURI:
             paths:
                 - '%paths.base%/vendor/ezsystems/behatbundle/features/setup/siteaccessMatcher/SAMMapURI.feature'
             contexts:
-                - EzSystems\Behat\API\Context\LanguageContext
+                - EzSystems\BehatBundle\Context\Object\LanguageContext
                 - EzSystems\Behat\Core\Context\ConfigurationContext
         CompoundMapURIMapHost:
             paths:
                 - '%paths.base%/vendor/ezsystems/behatbundle/features/setup/siteaccessMatcher/CompoundMapURIMapHost.feature'
             contexts:
-                - EzSystems\Behat\API\Context\LanguageContext
+                - EzSystems\BehatBundle\Context\Object\LanguageContext
                 - EzSystems\Behat\Core\Context\ConfigurationContext
